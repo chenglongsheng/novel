@@ -7,6 +7,10 @@ android {
     namespace 'com.buyehou.novel'
     compileSdk 33
 
+    viewBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.buyehou.novel"
         minSdk 23
