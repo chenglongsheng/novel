@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.viewpager2.widget.ViewPager2
 import com.buyehou.novel.BaseFragment
+import com.buyehou.novel.adapter.GalleryAdapter
 import com.buyehou.novel.databinding.FragmentHomeBinding
 
 /**
@@ -24,7 +26,22 @@ class HomeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initBookCoverAdapter()
+    }
 
+    private fun initBookCoverAdapter() {
+        binding.vpBook.apply {
+            adapter = GalleryAdapter()
+            currentItem = 1
+            offscreenPageLimit = 34
+            setPageTransformer(object : ViewPager2.PageTransformer {
+                override fun transformPage(page: View, position: Float) {
+                    if (position <= 1) {
+
+                    }
+                }
+            })
+        }
     }
 
 }
