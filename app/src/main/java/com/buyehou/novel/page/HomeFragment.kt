@@ -4,16 +4,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager2.widget.ViewPager2
 import com.buyehou.novel.BaseFragment
-import com.buyehou.novel.adapter.GalleryAdapter
+import com.buyehou.novel.R
 import com.buyehou.novel.databinding.FragmentHomeBinding
+import kotlin.math.abs
+
+private const val MAX_SCALE = 1f
+
+private const val MIN_SCALE = 0.8f
 
 /**
  * @author Rosen
  * @date 2023/8/28 15:17
  */
 class HomeFragment : BaseFragment() {
+
+    private val data = listOf(
+        R.drawable.img_book1,
+        R.drawable.img_book1,
+        R.drawable.img_book1,
+        R.drawable.img_book1,
+        R.drawable.img_book1
+    )
 
     private lateinit var binding: FragmentHomeBinding
 
@@ -30,17 +42,7 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun initBookCoverAdapter() {
-        binding.vpBook.apply {
-            adapter = GalleryAdapter()
-            currentItem = 1
-            offscreenPageLimit = 34
-            setPageTransformer(object : ViewPager2.PageTransformer {
-                override fun transformPage(page: View, position: Float) {
-                    if (position <= 1) {
-
-                    }
-                }
-            })
+        binding.rvBook.apply {
         }
     }
 
